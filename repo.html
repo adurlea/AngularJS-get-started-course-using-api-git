@@ -1,0 +1,46 @@
+<div>
+  <h2>{{repo.name}}</h2> {{ error }}
+
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stars</th>
+      <th>Language</th>
+      <th>Open Issues</th>
+      <th>Forks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="right">{{repo.stargazers_count | number}}</td>
+      <td>{{repo.language}}</td>
+      <td align="right">{{repo.open_issues | number}}</td>
+      <td align="right">{{repo.forks | number}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Contributors</b></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Login</th>
+      <th>Photo</th>
+      <th>Type</th>
+      <th>Contributions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="repoContrib in repoContribs">
+      <td>{{repoContrib.login}}</td>
+      <td><img ng-src="{{repoContrib.avatar_url}}" alt="repoContrib.login" width="100px" height="100px" /></td>
+      <td>{{repoContrib.type}}</td>
+      <td align="right">{{repoContrib.contributions | number}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="#!/user/{{username}}">Back to repos</a>
